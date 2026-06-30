@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ultimate Tech Support</title>
+
+<meta name="description" content="Technical assistance for all your digital technology requirements.">
+<meta name="color-scheme" content="light dark">
+
+<link rel="icon" type="image/png" href="./assets/images/favicon.png">
+<link rel="stylesheet" href="./assets/css/styles.css">
+
+</head>
+
+<body>
+
+<a class="home-button" href="/" aria-label="Homepage">
+
+<img src="./assets/images/homepage.png" alt="Home">
+
+</a>
+
+<div class="container">
+
+<h1>Ultimate Tech Support</h1>
+
+<p class="subtitle">
+Need assistance with your computer or technology?
+Please complete the form below.
+</p>
+<div class="disclaimer">
+    We cannot meet customers in person.
+    Support is available only via email, phone call, or text message.
+    We sincerely apologise for any inconvenience.
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden"
+name="access_key"
+value="52923845-5bb5-4db1-8965-5a68fd67c9ee">
+
+<fieldset>
+
+<div class="section">
+
+<hr>
+
+<h3>Contact Details</h3>
+
+<p style="color: red;"> * Indicates Required Question</p>
+
+<label style="margin-bottom: 10px;">
+First Name <span style="color: red;">*</span>
+</label>
+
+<input
+name="firstname"
+type="text"
+placeholder="Enter your first name"
+required>
+
+<label style="margin-bottom: 10px;">
+Last Name <span style="color: red;">*</span>
+</label>
+
+<input
+name="lastname"
+type="text"
+placeholder="Enter your last name"
+required>
+
+<label style="margin-bottom: 10px;">
+Email <span style="color: red;">*</span>
+</label>
+
+<input
+name="email"
+type="email"
+placeholder="Enter your email"
+required>
+
+<label style="margin-bottom: 10px;">
+Phone (Optional)
+</label>
+
+<input
+name="phone"
+type="tel"
+placeholder="Phone number">
+
+<hr>
+
+</div>
+
+<div class="section">
+
+<h3>Issue Description</h3>
+
+<label style="margin-bottom: 10px;">
+Describe the problem <span style="color: red;">*</span>
+</label>
+
+<textarea 
+name="problem"
+placeholder="Explain what is happening..."
+required></textarea>
+
+<h4>
+Does the computer show signs of life?
+</h4>
+
+<div class="radio-area">
+
+<label>
+<input
+type="radio"
+name="computer_status"
+required
+value="Yes">
+Yes
+</label>
+
+<label>
+<input
+type="radio"
+name="computer_status"
+required
+value="No">
+No
+</label>
+
+</div>
+<hr>
+
+</div>
+
+<div class="section">
+
+<h3>Verification</h3>
+
+<div
+class="h-captcha"
+data-captcha="true">
+</div>
+
+<hr>
+
+</div>
+
+<input style="margin-bottom: 20px;"
+class="submit"
+type="submit"
+value="Send Support Request">
+
+<hr>
+</form>
+<h3>
+What Will Happen After I Submit My Form?
+</h3>
+
+<p>
+Once you submit your Tech Support Form, you will receive an email (and a call or text if you are unavailable, if chosen), and we will assist you in troubleshooting your issue.
+</p> 
+<hr>
+</fieldset>
+
+<footer>
+
+© <span id="year"></span>
+AllensTechChannel.
+
+<a href="https://eazyos.github.io/contact.html"
+target="_blank">
+Contact Me
+</a>
+
+</footer>
+
+</div>
+
+<script>
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
+
+<script
+src="https://web3forms.com/client/script.js"
+async
+defer>
+</script>
+
+</body>
+
+</html>
