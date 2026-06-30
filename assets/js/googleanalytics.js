@@ -1,16 +1,18 @@
-// Define your Google Analytics Measurement ID
-const ga_id = "G-XW7Q3GKJGT";
-
-// 1. Dynamically create and load the external Google Tag Manager script
-const ga_script = document.createElement('script');
-ga_script.async = true;
-ga_script.src = `https://googletagmanager.com{ga_id}`;
-document.head.appendChild(ga_script);
-
-// 2. Initialize the dataLayer and the gtag function
+// 1. Initialize the global dataLayer array and gtag function
 window.dataLayer = window.dataLayer || [];
 function gtag(){ dataLayer.push(arguments); }
 
-// 3. Configure Google Analytics with your ID
+// 2. Configure initial timestamps and tracking ID
 gtag('js', new Date());
-gtag('config', ga_id);
+gtag('config', 'G-XXXXXXXXXX'); 
+
+// 3. Dynamically inject the external Google Analytics script tag into the HTML document
+(function() {
+    var gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://googletagmanager.com';
+    
+    // Inject the script into the <head> of the document
+    var firstScript = document.getElementsByTagName('script')[0];
+    firstScript.parentNode.insertBefore(gaScript, firstScript);
+})();
