@@ -2,209 +2,192 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ultimate Tech Support</title>
-<script src="./assets/js/googleanalytics.js" defer></script>
-<meta name="description" content="Technical assistance for all your digital technology requirements.">
-<meta name="color-scheme" content="light dark">
+    <title>Ultimate Tech Support</title>
+    
+    <meta name="description" content="Technical assistance for all your digital technology requirements.">
+    <meta name="color-scheme" content="light dark">
 
-<link rel="icon" type="image/png" href="./assets/images/favicon.png">
-<link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW7Q3GKJGT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XW7Q3GKJGT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-XW7Q3GKJGT');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XW7Q3GKJGT');
+    </script>
 
 </head>
 
+<!--Body-->
 <body>
 
-<a class="home-button" href="/" aria-label="Homepage">
+    <!--Homepage Buttion-->
+    <a class="home-button" href="/" aria-label="Homepage">
 
-<img src="./assets/images/homepage.png" alt="Home">
+        <img src="./assets/images/homepage.png" alt="Home">
 
-</a>
+    </a>
+    
+    <!--Main Content-->
+    <div class="container">
+        
+        <!--Title-->
+        <h1>Ultimate Tech Support</h1>
 
-<div class="container">
+        <!--Subtitle-->
+        <p class="subtitle">
+            Need assistance with your computer or technology?
+            Please complete the form below.
+        </p>
 
-<h1>Ultimate Tech Support</h1>
+        <!--Disclamer-->
+        <div class="disclaimer">
+            We cannot meet customers in person.
+            Support is available only via email, phone call, or text message.
+            We sincerely apologise for any inconvenience.
+        </div>
 
-<p class="subtitle">
-Need assistance with your computer or technology?
-Please complete the form below.
-</p>
-<div class="disclaimer">
-    We cannot meet customers in person.
-    Support is available only via email, phone call, or text message.
-    We sincerely apologise for any inconvenience.
-</div>
+        <!--Web3Forms API-->
+        <form action="https://api.web3forms.com/submit" method="POST">
+   
+            <!--Web3Forms Access Key-->
+            <input type="hidden" name="access_key" value="b06acc70-31a2-411f-9f79-399face641ac">
 
-<form action="https://api.web3forms.com/submit" method="POST">
+            <fieldset>
 
-<input type="hidden"
-name="access_key"
-value="b06acc70-31a2-411f-9f79-399face641ac">
+                <div class="section">
 
-<fieldset>
+                    <hr>
 
-<div class="section">
+                    <!--Form Title-->
+                    <h3>Contact Details</h3>
 
-<hr>
+                    
+                    <p style="color: red;"> * Indicates Required Question</p>
+                    
+                    <!--Form Stuff-->
+                    <label style="margin-bottom: 10px;">
+                        First Name <span style="color: red;">*</span>
+                    </label>
+                    
+                    
+                    <input name="first_name" type="text" placeholder="Enter your first name" required>
 
-<h3>Contact Details</h3>
+                    <label style="margin-bottom: 10px;">
+                        Last Name <span style="color: red;">*</span>
+                    </label>
 
-<p style="color: red;"> * Indicates Required Question</p>
+                    <input name="last_name" type="text" placeholder="Enter your last name" required>
 
-<label style="margin-bottom: 10px;">
-First Name <span style="color: red;">*</span>
-</label>
+                    <label style="margin-bottom: 10px;">
+                        Email <span style="color: red;">*</span>
+                    </label>
 
-<input
-name="firstname"
-type="text"
-placeholder="Enter your first name"
-required>
+                    <input name="email" type="email" placeholder="Enter your email" required>
 
-<label style="margin-bottom: 10px;">
-Last Name <span style="color: red;">*</span>
-</label>
+                    <label style="margin-bottom: 10px;">
+                        Phone (Optional)
+                    </label>
 
-<input
-name="lastname"
-type="text"
-placeholder="Enter your last name"
-required>
+                    <input name="phone_number" type="tel" placeholder="Phone number">
 
-<label style="margin-bottom: 10px;">
-Email <span style="color: red;">*</span>
-</label>
+                    <hr>
 
-<input
-name="email"
-type="email"
-placeholder="Enter your email"
-required>
+                </div>
 
-<label style="margin-bottom: 10px;">
-Phone (Optional)
-</label>
+                <div class="section">
 
-<input
-name="phone"
-type="tel"
-placeholder="Phone number">
+                    <h3>Issue Description</h3>
 
-<hr>
+                    <label style="margin-bottom: 10px;">
+                        Describe the problem <span style="color: red;">*</span>
+                    </label>
 
-</div>
+                    <textarea name="problem" placeholder="Explain what is happening..." required></textarea>
 
-<div class="section">
+                    <h4>
+                        Does the computer show signs of life?
+                    </h4>
 
-<h3>Issue Description</h3>
+                    <div class="radio-area">
 
-<label style="margin-bottom: 10px;">
-Describe the problem <span style="color: red;">*</span>
-</label>
+                        <label>
+                            <input type="radio" name="sighs_of_life" required value="Yes">
+                            Yes
+                        </label>
 
-<textarea 
-name="problem"
-placeholder="Explain what is happening..."
-required></textarea>
+                        <label>
+                            <input type="radio" name="sighs_of_life" required value="No">
+                            No
+                        </label>
 
-<h4>
-Does the computer show signs of life?
-</h4>
+                    </div>
+                    <hr>
 
-<div class="radio-area">
+                </div>
 
-<label>
-<input
-type="radio"
-name="computer_status"
-required
-value="Yes">
-Yes
-</label>
+                <div class="section">
 
-<label>
-<input
-type="radio"
-name="computer_status"
-required
-value="No">
-No
-</label>
+                    <h3>Verification</h3>
 
-</div>
-<hr>
+                    <div class="h-captcha" data-captcha="true">
+                    </div>
 
-</div>
+                    <hr>
 
-<div class="section">
+                </div>
 
-<h3>Verification</h3>
+                <input style="margin-bottom: 20px;" class="submit" type="submit" value="Send Support Request">
 
-<div
-class="h-captcha"
-data-captcha="true">
-</div>
+                <hr>
+        </form>
 
-<hr>
+        <!--Well, What Happens After?-->
+        <h3>
+            What Will Happen After I Submit My Form?
+        </h3>
 
-</div>
+        <p>
+            Once you submit your Tech Support Form, you will receive an email (and a call or text if you are unavailable, if chosen), and we will assist you in troubleshooting your issue.
+        </p>
+        <hr>
+        </fieldset>
 
-<input style="margin-bottom: 20px;"
-class="submit"
-type="submit"
-value="Send Support Request">
+        <!--Copyrite-->
+        <footer>
 
-<hr>
-</form>
-<h3>
-What Will Happen After I Submit My Form?
-</h3>
+            © <span id="year"></span>
+            AllensTechChannel.
 
-<p>
-Once you submit your Tech Support Form, you will receive an email (and a call or text if you are unavailable, if chosen), and we will assist you in troubleshooting your issue.
-</p> 
-<hr>
-</fieldset>
+            <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">
+                Contact Us
+            </a>
 
-<footer>
+        </footer>
 
-© <span id="year"></span>
-AllensTechChannel.
+    </div>
 
-<a href="https://eazyos.github.io/contact.html"
-target="_blank">
-Contact Me
-</a>
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
-</footer>
-
-</div>
-
-<script>
-
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
-</script>
-
-<script
-src="https://web3forms.com/client/script.js"
-async
-defer>
-</script>
+    <!--h-CAPTCHA Script-->
+    <script src="https://web3forms.com/client/script.js" async defer>
+    </script>
 
 </body>
 
 </html>
+<!--Finaly the end of my coding misery... for now!-->
