@@ -5,6 +5,7 @@
     --card:#ffffff;
     --text:#1a1a1a;
     --muted:#555;
+    --caption-color: #bbbbbb;
     --border:#d5dbe5;
 }
 
@@ -175,6 +176,8 @@ a {
 
 
 footer {
+    
+    color: var(--caption-color);
 
     text-align:center;
 
@@ -196,6 +199,7 @@ footer {
     --background:#101418;
     --card:#1c1f24;
 
+    --caption-color: #bbbbbb;
     --text:#f2f2f2;
 
     --muted:#cccccc;
