@@ -310,10 +310,10 @@ textarea::placeholder {
    left: 0;
    width: 100%;
    z-index: 1000;
-   background-color: #3b80ff48;
-   color: #000;
+   background-color: #3b80ffad;
 
-   padding: 8px;
+
+   padding: 5px;
    text-align: center;
    box-sizing: border-box;
  }
