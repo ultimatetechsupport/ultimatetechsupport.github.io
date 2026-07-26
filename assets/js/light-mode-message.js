@@ -4,7 +4,7 @@ if (isLight) {
 }
 
 const closeButton = document.getElementById('closeBtn');
-const targetDiv = document.getElementById('myDiv');
+const targetDiv = document.getElementById('message-banner');
 
 closeButton.addEventListener('click', () => {
   targetDiv.style.display = 'none'; 
