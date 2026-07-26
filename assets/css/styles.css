@@ -303,13 +303,20 @@ textarea::placeholder {
     height: 60px;
 
 }
-.banner {
-  display: none;
-  background-color: #3b80ff48;
-  color: #000;
-  padding: 3px;
-  text-align: center;
-}
+..banner {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
+   background-color: #3b80ff48;
+   color: #000;
+
+   padding: 8px;
+   text-align: center;
+   box-sizing: border-box;
+ }
 
 /* Show in light mode using media query */
 @media (prefers-color-scheme: light) {
