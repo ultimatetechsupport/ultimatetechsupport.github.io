@@ -303,7 +303,7 @@ textarea::placeholder {
     height: 60px;
 
 }
-..banner {
+.banner {
    display: none;
    position: fixed;
    top: 0;
