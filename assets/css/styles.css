@@ -262,13 +262,12 @@ textarea::placeholder {
 }
 
 .home-button {
-    position: fixed !important;
 
+    position: fixed !important;
     top: 20px !important;
     right: 20px !important;
     left: auto !important;
     bottom: auto !important;
-    margin-right: auto;
 
     width: 58px;
     height: 58px;
