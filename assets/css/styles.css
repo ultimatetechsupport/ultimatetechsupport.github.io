@@ -296,11 +296,31 @@ textarea::placeholder {
 }
 
 
+
 .home-button img {
 
     width: 60px;
     height: 60px;
 
+}
+.banner {
+  display: none;
+  background-color: #ffeb3b;
+  color: #000;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Show in light mode using media query */
+@media (prefers-color-scheme: light) {
+  .banner {
+    display: block;
+  }
+}
+
+/* Or show via a custom class toggled by JS */
+body.light-mode .banner {
+  display: block;
 }
 
 @media(max-width:600px) {
