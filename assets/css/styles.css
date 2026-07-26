@@ -305,9 +305,9 @@ textarea::placeholder {
 }
 .banner {
   display: none;
-  background-color: #ffeb3b;
+  background-color: #3b80ff48;
   color: #000;
-  padding: 10px;
+  padding: 3px;
   text-align: center;
 }
 
