@@ -5,8 +5,8 @@ window.onload = function() {
 // Get the full URL
 const fullUrl = document.URL;
 
-// Remove https:// and keep www.
+// Remove https://
 const cleanUrl = fullUrl.replace(/^https?:\/\//, '');
 
 // Display in the page
-document.getElementById('currentUrl').textContent = `${cleanUrl}`;
+document.getElementById('currentUrl').textContent = cleanUrl;
