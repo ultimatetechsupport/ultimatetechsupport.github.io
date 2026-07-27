@@ -82,6 +82,24 @@ body.light-mode .banner {
   padding: 15px 30px;
   background-color: #2a3a5e;
 }
+/* Container needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hide the dropdown menu by default */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2a3a5e;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover { background-color: #ddd; }
 
 .nav-logo {
   display: flex;
