@@ -58,9 +58,6 @@ body {
     min-height:100vh;
 
     font-family:"Segoe UI",Arial,sans-serif;
-    margin-top: 80px; /* Crucial! Prevents body text from hiding behind fixed navbar */
-    padding: 20px;
-    height: 2000px;  /* Created artificial height to test scrolling */
 
     background:
         linear-gradient(135deg,#eef5ff,#ffffff);
