@@ -192,20 +192,18 @@ footer {
 }
 
 
-/* Nav bar */
 .navbar {
-  position: fixed;     /* Keeps the navbar at the top while scrolling */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #333;
-  display: flex;       /* Aligns items side-by-side using Flexbox */
-  justify-content: space-between; /* Pushes logo to left, links to right */
-  align-items: center; /* Centers items vertically */
-  padding: 0 20px;
-  z-index: 1000;       /* Ensures it stays on top of other elements */
-  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #2a3a5e;
+}
+
+.navbar nav a {
+  color: #ffffff;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
 /* Logo / home link, separate from the .home-button used on other pages */
@@ -357,21 +355,26 @@ textarea::placeholder {
 
 
 
+.top-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .banner {
-   display: none;
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   z-index: 1000;
-   background-color: #3b80ff48;
+  background-color: #1e293b; /* Dark slate background */
+  color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+}
 
-
-   padding: 8px;
-   padding-top: 5px;
-   text-align: center;
-   box-sizing: border-box;
- }
+.banner a {
+  color: #38bdf8; /* Accessible blue link */
+  text-decoratio
 
  #closeBtn {
   position: absolute;
@@ -403,4 +406,3 @@ body.light-mode .banner {
 
 }
 
-}
