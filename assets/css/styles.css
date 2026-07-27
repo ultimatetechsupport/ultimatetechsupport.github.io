@@ -196,6 +196,16 @@ textarea {
   gap: 8px;
 }
 
+p {
+  padding: 15px 0; /* 20px top/bottom, 0 left/right */
+
+}
+
+h3 {
+  padding: 20px 0; /* 20px top/bottom, 0 left/right */
+
+}
+
 .radio-area input {
   width: auto;
 }
