@@ -9,4 +9,4 @@ const fullUrl = document.URL;
 const cleanUrl = fullUrl.replace(/^https?:\/\//, '');
 
 // Display in the page
-document.getElementById('currentUrl').textContent = `www.${cleanUrl}`;
+document.getElementById('currentUrl').textContent = `${cleanUrl}`;
