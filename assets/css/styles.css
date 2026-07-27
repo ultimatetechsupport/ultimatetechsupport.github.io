@@ -207,14 +207,11 @@ h3 {
 }
 
 label {
-padding: 15px 0; /* 20px top/bottom, 0 left/right */
-
+  display: inline-block; /* Essential to allow vertical padding */
+  padding-bottom: 15px;  /* Adjust the spacing value as needed */
 }
 
-hr {
-padding: 15px 0; /* 20px top/bottom, 0 left/right */
 
-}
 
 .radio-area input {
   width: auto;
