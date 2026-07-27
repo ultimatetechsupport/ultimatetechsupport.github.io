@@ -211,6 +211,11 @@ padding: 15px 0; /* 20px top/bottom, 0 left/right */
 
 }
 
+hr {
+padding: 15px 0; /* 20px top/bottom, 0 left/right */
+
+}
+
 .radio-area input {
   width: auto;
 }
