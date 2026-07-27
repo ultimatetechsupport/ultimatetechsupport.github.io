@@ -47,7 +47,7 @@ body {
 
 .banner a {
   color: #38bdf8; /* Accessible blue link */
-  text-decoration: underline; /* FIXED broken property */
+  text-decoration: underline;
 }
 
 #closeBtn {
@@ -65,7 +65,7 @@ body {
 /* Display banner in light mode while maintaining flex layout */
 @media (prefers-color-scheme: light) {
   .banner {
-    display: flex; /* FIXED: keeps flex alignment */
+    display: flex;
   }
 }
 
@@ -247,6 +247,10 @@ footer {
   body {
     background: linear-gradient(135deg, #101820, #1b2638);
     color: var(--text);
+  }
+
+  fieldset {
+    padding: 15px;
   }
 
   .container {
