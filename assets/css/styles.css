@@ -17,40 +17,6 @@
     box-sizing: border-box;
 }
 
-/* The top navigation bar container */
-.navbar {
-  position: fixed;     /* Keeps the navbar at the top while scrolling */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #333;
-  display: flex;       /* Aligns items side-by-side using Flexbox */
-  justify-content: space-between; /* Pushes logo to left, links to right */
-  align-items: center; /* Centers items vertically */
-  padding: 0 20px;
-  z-index: 1000;       /* Ensures it stays on top of other elements */
-}
-
-
-/* Unordered list styling */
-.nav-links {
-  display: flex;
-  list-style: none;    /* Removes bullet points */
-}
-
-/* Individual link container */
-.nav-links li {
-  margin-left: 20px;
-}
-
-/* Hyperlinks formatting */
-.nav-links a {
-  color: #fff;
-  text-decoration: none; /* Removes text underlines */
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
 
 
 body {
@@ -287,6 +253,91 @@ textarea::placeholder {
 
 }
 
+/* Nav bar */
+.navbar {
+  position: fixed;     /* Keeps the navbar at the top while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+  display: flex;       /* Aligns items side-by-side using Flexbox */
+  justify-content: space-between; /* Pushes logo to left, links to right */
+  align-items: center; /* Centers items vertically */
+  padding: 0 20px;
+  z-index: 1000;       /* Ensures it stays on top of other elements */
+  box-sizing: border-box;
+}
+
+/* Logo / home link, separate from the .home-button used on other pages */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover img,
+.nav-logo:focus-visible img {
+  transform: scale(1.1);
+}
+
+/* Give pages with a fixed navbar room so it doesn't cover the content */
+body.has-navbar {
+  padding-top: 100px;
+}
+
+
+/* Unordered list styling */
+.nav-links {
+  display: flex;
+  list-style: none;    /* Removes bullet points */
+}
+
+/* Individual link container */
+.nav-links li {
+  margin-left: 20px;
+}
+
+/* Hyperlinks formatting */
+.nav-links a {
+  color: #fff;
+  text-decoration: none; /* Removes text underlines */
+  font-size: 16px;
+  padding: 6px 2px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline on hover/focus */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
+}
+
+.nav-links a:active {
+  color: var(--primary-hover);
+}
 
 .disclaimer {
 
