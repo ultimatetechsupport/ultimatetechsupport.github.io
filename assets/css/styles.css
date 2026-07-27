@@ -1,198 +1,81 @@
 :root {
-    --primary:#0067c5;
-    --primary-hover:#004f9e;
-    --background:#f4f7fb;
-    --card:#ffffff;
-    --text:#1a1a1a;
-    --muted:#555;
-    --caption-color: #bbbbbb;
-    --border:#d5dbe5;
+  --primary: #0067c5;
+  --primary-hover: #004f9e;
+  --background: #f4f7fb;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #555;
+  --caption-color: #bbbbbb;
+  --border: #d5dbe5;
 }
-
 
 * {
-    box-sizing:border-box;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-
 
 body {
-    margin:0;
-    min-height:100vh;
-
-    font-family:"Segoe UI",Arial,sans-serif;
-
-    background:
-        linear-gradient(135deg,#eef5ff,#ffffff);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:25px;
-
-    color:var(--text);
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #eef5ff, #ffffff);
+  display: flex;
+  flex-direction: column; /* Allows navbar to sit naturally at the top */
+  align-items: center;
+  padding: 0 0 25px 0;
+  color: var(--text);
 }
 
-
-.container {
-
-    width:100%;
-    max-width:850px;
-
-    background:var(--card);
-
-    padding:35px;
-
-    border-radius:24px;
-
-    box-shadow:0 20px 45px #0002;
+/* TOP WRAPPER & BANNER */
+.top-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-
-h1 {
-
-    text-align:center;
-    color:var(--primary);
-
+.banner {
+  background-color: #1e293b; /* Dark slate background */
+  color: #ffffff;
+  padding: 12px 45px 12px 20px;
+  display: none; /* Default hidden */
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
 }
 
-
-.subtitle {
-
-    text-align:center;
-    color:var(--muted);
-
+.banner a {
+  color: #38bdf8; /* Accessible blue link */
+  text-decoration: underline; /* FIXED broken property */
 }
 
-
-input,
-textarea {
-
-    width:100%;
-
-    padding:13px;
-
-    margin-top:6px;
-
-    border-radius:12px;
-
-    border:1px solid var(--border);
-
-    background:white;
-
-    color:var(--text);
-
+#closeBtn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-
-input:focus,
-textarea:focus {
-
-    outline:none;
-
-    border-color:var(--primary);
-
+/* Display banner in light mode while maintaining flex layout */
+@media (prefers-color-scheme: light) {
+  .banner {
+    display: flex; /* FIXED: keeps flex alignment */
+  }
 }
 
-
-textarea {
-
-    height:140px;
-
+body.light-mode .banner {
+  display: flex;
 }
 
-
-.radio-area {
-
-    display:flex;
-
-    gap:30px;
-
-    align-items:center;
-
-}
-
-
-.radio-area label {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-}
-
-
-.radio-area input {
-
-    width:auto;
-
-}
-
-
-.disclaimer {
-
-    padding:15px;
-
-    background:#eef6ff;
-
-    border-radius:12px;
-
-}
-
-
-.submit {
-
-    margin-top:20px;
-
-    background:var(--primary);
-
-    color:white;
-
-    border:none;
-
-    padding:14px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-}
-
-
-.submit:hover {
-
-    background:var(--primary-hover);
-
-}
-
-
-a {
-
-    color:var(--primary);
-
-}
-
-
-footer {
-    
-    color: var(--caption-color);
-
-    text-align:center;
-
-    font-size: 0.9rem;
-
-    margin-top:25px;
-
-}
-
-
+/* NAVBAR STYLING */
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -200,13 +83,6 @@ footer {
   background-color: #2a3a5e;
 }
 
-.navbar nav a {
-  color: #ffffff;
-  margin-left: 20px;
-  text-decoration: none;
-}
-
-/* Logo / home link, separate from the .home-button used on other pages */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -223,34 +99,24 @@ footer {
   transform: scale(1.1);
 }
 
-/* Give pages with a fixed navbar room so it doesn't cover the content */
-body.has-navbar {
-  padding-top: 100px;
-}
-
-
-/* Unordered list styling */
 .nav-links {
   display: flex;
-  list-style: none;    /* Removes bullet points */
+  list-style: none;
 }
 
-/* Individual link container */
 .nav-links li {
   margin-left: 20px;
 }
 
-/* Hyperlinks formatting */
 .nav-links a {
   color: #fff;
-  text-decoration: none; /* Removes text underlines */
+  text-decoration: none;
   font-size: 16px;
   padding: 6px 2px;
   position: relative;
   transition: color 0.3s ease;
 }
 
-/* Animated underline on hover/focus */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -276,133 +142,142 @@ body.has-navbar {
   color: var(--primary-hover);
 }
 
-
-/* DARK MODE */
-
-@media (prefers-color-scheme:dark) {
-
-
-:root {
-
-    --primary:#4da3ff;
-    --primary-hover:#82bdff;
-
-    --background:#101418;
-    --card:#1c1f24;
-
-    --caption-color: #bbbbbb;
-    --text:#f2f2f2;
-
-    --muted:#cccccc;
-
-    --border:#3b424d;
-
-}
-
-
-body {
-
-    background:
-    linear-gradient(135deg,#101820,#1b2638);
-
-    color:var(--text);
-
-}
-
-
+/* MAIN CONTENT */
 .container {
-
-    background:var(--card);
-
-    box-shadow:0 20px 50px #0008;
-
+  width: 100%;
+  max-width: 850px;
+  background: var(--card);
+  padding: 35px;
+  margin-top: 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px #0002;
 }
 
+h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+}
 
 input,
 textarea {
-
-    background:#252a31;
-
-    color:white;
-
-    border-color:var(--border);
-
+  width: 100%;
+  padding: 13px;
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
 }
 
-
-input::placeholder,
-textarea::placeholder {
-
-    color:#999;
-
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
 }
 
+textarea {
+  height: 140px;
+}
 
+.radio-area {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.radio-area label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-area input {
+  width: auto;
+}
 
 .disclaimer {
-
-    background:#222b38;
-
-    color:white;
-
+  padding: 15px;
+  background: #eef6ff;
+  border-radius: 12px;
 }
 
-
-}
-
-
-
-
-
-.top-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.banner {
-  background-color: #1e293b; /* Dark slate background */
-  color: #ffffff;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  font-size: 14px;
-}
-
-.banner a {
-  color: #38bdf8; /* Accessible blue link */
-  text-decoratio
-
- #closeBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
+.submit {
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
   border: none;
-  font-size: 20px;
+  padding: 14px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-/* Show in light mode using media query */
-@media (prefers-color-scheme: light) {
+.submit:hover {
+  background: var(--primary-hover);
+}
+
+a {
+  color: var(--primary);
+}
+
+footer {
+  color: var(--caption-color);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 25px;
+}
+
+/* DARK MODE OVERRIDES */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4da3ff;
+    --primary-hover: #82bdff;
+    --background: #101418;
+    --card: #1c1f24;
+    --caption-color: #bbbbbb;
+    --text: #f2f2f2;
+    --muted: #cccccc;
+    --border: #3b424d;
+  }
+
+  body {
+    background: linear-gradient(135deg, #101820, #1b2638);
+    color: var(--text);
+  }
+
+  .container {
+    background: var(--card);
+    box-shadow: 0 20px 50px #0008;
+  }
+
+  input,
+  textarea {
+    background: #252a31;
+    color: white;
+    border-color: var(--border);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #999;
+  }
+
+  .disclaimer {
+    background: #222b38;
+    color: white;
+  }
+
   .banner {
-    display: block;
+    display: none; /* Hide banner automatically in dark mode */
   }
 }
 
-/* Or show via a custom class toggled by JS */
-body.light-mode .banner {
-  display: block;
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
 }
-
-@media(max-width:600px) {
-
-.container {
-
-    padding:20px;
-
-}
-
