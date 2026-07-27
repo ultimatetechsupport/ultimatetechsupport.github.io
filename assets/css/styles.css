@@ -350,48 +350,10 @@ body.has-navbar {
 
 }
 
-.home-button {
-
-    position: fixed !important;
-    top: 20px !important;
-    right: auto !important;
-    left: 20px !important;
-    bottom: auto !important;
-
-    width: 58px;
-    height: 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--card);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 8px 25px #0003;
-
-    z-index: 9999;
-
-    transition: .2s;
-}
-
-
-.home-button:hover {
-
-    transform: scale(1.1);
-
-}
 
 
 
-.home-button img {
 
-    width: 60px;
-    height: 60px;
-
-}
 .banner {
    display: none;
    position: fixed;
