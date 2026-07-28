@@ -35,7 +35,7 @@ body {
 }
 
 .banner {
-  background-color: #1e293b8f; /* Dark slate background */
+  background-color: #1e293b; /* Dark slate background */
   color: #ffffff;
   padding: 12px 45px 12px 20px;
   display: none; /* Default hidden */
@@ -80,7 +80,7 @@ body.light-mode .banner {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #2a3a5e7e;
+  background-color: #2a3a5e;
 }
 .nav-links li {
   position: relative; /* Keeps the child dropdown aligned beneath this specific item */
