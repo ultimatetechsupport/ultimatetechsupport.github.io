@@ -27,19 +27,18 @@ body {
   color: var(--text);
 }
 
-/* TOP WRAPPER & STICKY HEADER */
-/* Ensure parent containers allow dropdowns to pop out */
-.top-wrapper,
-.navbar {
-  overflow: visible !important; 
+/* TOP WRAPPER & BANNER */
+.top-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-/* BANNER STYLING */
 .banner {
-  background-color: #1e293b57;
+  background-color: #1e293b; /* Dark slate background */
   color: #ffffff;
   padding: 12px 45px 12px 20px;
-  display: none;
+  display: none; /* Default hidden */
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -47,7 +46,7 @@ body {
 }
 
 .banner a {
-  color: #38bdf8;
+  color: #38bdf8; /* Accessible blue link */
   text-decoration: underline;
 }
 
@@ -63,89 +62,7 @@ body {
   cursor: pointer;
 }
 
-:root {
-  --primary: #0067c5;
-  --primary-hover: #004f9e;
-  --background: #f4f7fb;
-  --card: #ffffff;
-  --text: #1a1a1a;
-  --muted: #555;
-  --caption-color: #bbbbbb;
-  --border: #d5dbe5;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #eef5ff, #ffffff);
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers the .container, NOT the navbar */
-  color: var(--text);
-}
-
-/* ==========================================
-   TOP WRAPPER & STICKY HEADER (FULL WIDTH)
-   ========================================== */
-.top-wrapper {
-  width: 100%; /* Force 100% viewport width */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ==========================================
-   NOTIFICATION BANNER
-   ========================================== */
-.banner {
-  width: 100%;
-  background-color: #1838a07c;
-  color: #ffffff;
-  padding: 10px 45px 10px 20px;
-  display: none; /* Controlled via JS or Media Query */
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  font-size: 14px;
-}
-
-.banner-text {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-
-.banner a {
-  color: #38bdf8;
-  text-decoration: underline;
-}
-
-#closeBtn,
-.close-btn {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 22px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-/* Toggle Banner Display */
+/* Display banner in light mode while maintaining flex layout */
 @media (prefers-color-scheme: light) {
   .banner {
     display: flex;
@@ -156,35 +73,83 @@ body.light-mode .banner {
   display: flex;
 }
 
-/* ==========================================
-   NAVBAR & LOGO (FULL WIDTH FIX)
-   ========================================== */
-/* NAVBAR CONTAINER */
+/* NAVBAR STYLING */
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: center; /* Centers the inner content */
+  justify-content: space-between;
   align-items: center;
-  position: relative; /* Allows absolute positioning for the logo */
-  padding: 12px 40px;
-  background-color: #2a658a54;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow: visible !important;
+  padding: 15px 30px;
+  background-color: #2a3a5e;
+}
+.nav-links li {
+  position: relative; /* Keeps the child dropdown aligned beneath this specific item */
+  margin-left: 20px;
 }
 
-/* LOGO (Positioned on the left while keeping links in the exact center) */
-.nav-logo {
+/* Dropdown trigger button - reset button UA defaults so it matches the <a> nav links exactly */
+.dropbtn {
+  background: none;
+  border: none;
+  font: inherit; /* resets size/weight/line-height/family together - font-family alone isn't enough */
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+}
+
+.dropbtn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Hidden Dropdown State */
+.dropdown-menu {
+  display: none;
   position: absolute;
-  left: 30px;
+  top: 100%; /* Spawns directly below the parent link */
+  left: 0;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background-color: #444;
+  color: var(--primary);
+}
+
+/* Interaction Rule: Reveal on hover, and on keyboard focus for accessibility */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+.nav-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
 }
 
 .nav-logo img {
-  width: 36px !important;
-  height: 36px !important;
-  object-fit: contain;
+  width: 36px;
+  height: 36px;
   transition: transform 0.3s ease;
 }
 
@@ -193,167 +158,96 @@ body.light-mode .banner {
   transform: scale(1.1);
 }
 
-/* NAV LINKS (Centered) */
 .nav-links {
   display: flex;
-  align-items: center;
-  justify-content: center; /* Keeps links aligned in the middle */
-  list-style: none !important;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    justify-content: center;
-    padding: 12px 15px;
-  }
-
-  .nav-logo {
-    position: static; /* Stack logo above links on small screens */
-    margin-bottom: 8px;
-  }
-
-  .nav-links {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-}
-
-.nav-links li {
-  position: relative; /* Anchor point for dropdown */
-  list-style: none !important;
-}
-
+/* Base link styling - real <a> nav links only. The dropdown trigger
+   is styled separately below so it doesn't look like a clickable link. */
 .nav-links a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 16px;
-  padding: 6px 12px;
-  display: inline-block;
-  border-radius: 6px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 6px 2px;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* ==========================================
-   DROPDOWN MENU STYLING
-   ========================================== */
-.dropdown-menu {
+.nav-links a::after {
+  content: '';
   position: absolute;
-  top: 100%;
   left: 0;
-  display: none;
-  flex-direction: column;
-  background-color: #2a3a5e;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  list-style: none !important;
-  margin: 0;
-  padding: 6px 0;
-  white-space: nowrap;
-  width: max-content;
-  min-width: 160px;
-  z-index: 1000;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
 }
 
-.dropdown-menu li {
-  list-style: none !important;
-  margin: 0;
-  padding: 0;
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--primary);
 }
 
-.dropdown-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 0;
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
 }
 
-.dropdown-menu a:hover {
-  background-color: #3b4d7a;
+.nav-links a:active {
+  color: var(--primary-hover);
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-  display: flex;
+/* Dropdown trigger - same base color/size as the links for visual
+   consistency in the navbar, but no underline-on-hover animation and
+   a caret icon instead, so it doesn't read as a navigable link. */
+.dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 16px;
+  padding: 6px 2px;
+  transition: color 0.3s ease;
 }
 
-/* ==========================================
-   MAIN CONTENT CONTAINER
-   ========================================== */
+.dropbtn::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform 0.3s ease;
+}
+
+.dropbtn:hover,
+.dropbtn:focus-visible {
+  color: var(--primary);
+}
+
+.dropbtn:active {
+  color: var(--primary-hover);
+}
+
+.dropdown:hover .dropbtn::after,
+.dropdown:focus-within .dropbtn::after {
+  transform: rotate(-180deg);
+}
+
+
+/* MAIN CONTENT */
 .container {
   width: 100%;
   max-width: 850px;
   background: var(--card);
   padding: 35px;
-  margin: 30px 20px 40px 20px;
+  margin-top: 30px;
   border-radius: 24px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 45px #0002;
 }
 
-h1 {
-  text-align: center;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-/* ==========================================
-   DARK MODE & RESPONSIVE OVERRIDES
-   ========================================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #4da3ff;
-    --primary-hover: #82bdff;
-    --background: #101418;
-    --card: #1c1f24;
-    --caption-color: #bbbbbb;
-    --text: #f2f2f2;
-    --muted: #cccccc;
-    --border: #3b424d;
-  }
-
-  body {
-    background: linear-gradient(135deg, #101820, #1b2638);
-    color: var(--text);
-  }
-
-  .container {
-    background: var(--card);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  }
-
-  .banner {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px 15px;
-  }
-
-  .nav-links {
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .container {
-    padding: 20px;
-    margin-top: 15px;
-  }
-}
 h1 {
   text-align: center;
   color: var(--primary);
