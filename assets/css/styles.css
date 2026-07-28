@@ -63,66 +63,183 @@ body {
   cursor: pointer;
 }
 
-/* Ensure Navbar spans the full top area cleanly */
-.navbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #2a3a5e;
-  position: relative;
-  overflow: visible !important; /* Prevents dropdown from being clipped/chopped off */
+:root {
+  --primary: #0067c5;
+  --primary-hover: #004f9e;
+  --background: #f4f7fb;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #555;
+  --caption-color: #bbbbbb;
+  --border: #d5dbe5;
 }
 
-/* Nav Links Container */
-.nav-links {
-  display: flex;
-  align-items: center;
-  list-style: none; /* Removes main nav bullets */
-  gap: 20px;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Base item positioning anchor */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #eef5ff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the .container, NOT the navbar */
+  color: var(--text);
+}
+
+/* ==========================================
+   TOP WRAPPER & STICKY HEADER (FULL WIDTH)
+   ========================================== */
+.top-wrapper {
+  width: 100%; /* Force 100% viewport width */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   NOTIFICATION BANNER
+   ========================================== */
+.banner {
+  width: 100%;
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 10px 45px 10px 20px;
+  display: none; /* Controlled via JS or Media Query */
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+}
+
+.banner-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.banner a {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+#closeBtn,
+.close-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Toggle Banner Display */
+@media (prefers-color-scheme: light) {
+  .banner {
+    display: flex;
+  }
+}
+
+body.light-mode .banner {
+  display: flex;
+}
+
+/* ==========================================
+   NAVBAR & LOGO (FULL WIDTH FIX)
+   ========================================== */
+.navbar {
+  width: 100%; /* Forces bar to span edge-to-edge */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background-color: #2a3a5e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: visible !important; /* Prevents dropdown menu clipping */
+}
+
+/* Strictly limit image dimensions */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  width: 36px !important;
+  height: 36px !important;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover img,
+.nav-logo:focus-visible img {
+  transform: scale(1.1);
+}
+
+/* Nav Links List */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none !important;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
 .nav-links li {
-  position: relative; /* Crucial: Keeps the dropdown anchored directly under the item */
-  list-style: none;
+  position: relative; /* Anchor point for dropdown */
+  list-style: none !important;
 }
 
 .nav-links a {
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
-  padding: 8px 12px;
+  padding: 6px 12px;
   display: inline-block;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* DROPDOWN MENU STYLING */
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   DROPDOWN MENU STYLING
+   ========================================== */
 .dropdown-menu {
   position: absolute;
-  top: 100%;            /* Positions directly below the parent link */
-  left: 0;              /* Aligns to the left edge of "Web Help" */
-  
-  display: none;        /* Hidden by default */
+  top: 100%;
+  left: 0;
+  display: none;
   flex-direction: column;
-  
   background-color: #2a3a5e;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  
-  list-style: none !important; /* FIXES THE BULLET POINT (o) */
+  list-style: none !important;
   margin: 0;
-  padding: 8px 0;
-  
-  white-space: nowrap;  /* FIXES TEXT CUTTING OFF HORIZONTALLY */
-  width: max-content;   /* Automatically resizes to fit text */
+  padding: 6px 0;
+  white-space: nowrap;
+  width: max-content;
   min-width: 160px;
   z-index: 1000;
 }
 
-/* Remove bullets specifically inside dropdown li */
 .dropdown-menu li {
   list-style: none !important;
   margin: 0;
@@ -135,16 +252,84 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
+  border-radius: 0;
 }
 
 .dropdown-menu a:hover {
   background-color: #3b4d7a;
 }
 
-/* SHOW DROPDOWN ON HOVER OR FOCUS */
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu {
   display: flex;
+}
+
+/* ==========================================
+   MAIN CONTENT CONTAINER
+   ========================================== */
+.container {
+  width: 100%;
+  max-width: 850px;
+  background: var(--card);
+  padding: 35px;
+  margin: 30px 20px 40px 20px;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* ==========================================
+   DARK MODE & RESPONSIVE OVERRIDES
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4da3ff;
+    --primary-hover: #82bdff;
+    --background: #101418;
+    --card: #1c1f24;
+    --caption-color: #bbbbbb;
+    --text: #f2f2f2;
+    --muted: #cccccc;
+    --border: #3b424d;
+  }
+
+  body {
+    background: linear-gradient(135deg, #101820, #1b2638);
+    color: var(--text);
+  }
+
+  .container {
+    background: var(--card);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .banner {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 15px;
+  }
+
+  .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 20px;
+    margin-top: 15px;
+  }
 }
 h1 {
   text-align: center;
