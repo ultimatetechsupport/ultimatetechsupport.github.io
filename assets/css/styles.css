@@ -90,12 +90,12 @@ body.light-mode .banner {
 .dropbtn {
   background: none;
   border: none;
-  font-family: inherit;
+  font: inherit; /* resets size/weight/line-height/family together - font-family alone isn't enough */
+  text-align: left;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  line-height: normal;
   margin: 0;
 }
 
