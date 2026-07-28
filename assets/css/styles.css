@@ -63,7 +63,7 @@ body {
   cursor: pointer;
 }
 
-/* NAVBAR STYLING */
+/* Ensure Navbar spans the full top area cleanly */
 .navbar {
   width: 100%;
   display: flex;
@@ -71,217 +71,81 @@ body {
   align-items: center;
   padding: 15px 30px;
   background-color: #2a3a5e;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: visible !important; /* Prevents dropdown from being clipped/chopped off */
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo img {
-  width: 36px;
-  height: 36px;
-  transition: transform 0.3s ease;
-}
-
-.nav-logo:hover img,
-.nav-logo:focus-visible img {
-  transform: scale(1.1);
-}
-
+/* Nav Links Container */
 .nav-links {
   display: flex;
   align-items: center;
-  list-style: none;
-  gap: 20px; /* Modern spacing between links */
+  list-style: none; /* Removes main nav bullets */
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
+/* Base item positioning anchor */
 .nav-links li {
-  margin: 0;
-  position: relative;
+  position: relative; /* Crucial: Keeps the dropdown anchored directly under the item */
+  list-style: none;
 }
 
 .nav-links a {
   color: #ffffff;
   text-decoration: none;
   font-size: 16px;
-  padding: 6px 2px;
-  position: relative;
-  transition: color 0.3s ease;
+  padding: 8px 12px;
+  display: inline-block;
 }
 
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible {
-  color: var(--primary);
-}
-
-.nav-links a:hover::after,
-.nav-links a:focus-visible::after {
-  width: 100%;
-}
-
-.nav-links a:active {
-  color: var(--primary-hover);
-}
-
-/* MOBILE RESPONSIVE NAVBAR */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    gap: 12px;
-    padding: 12px 15px;
-  }
-
-  .nav-links {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/* Dropdown trigger button - reset button UA defaults so it matches the <a> nav links exactly */
-.dropbtn {
-  background: none;
-  border: none;
-  font: inherit; /* resets size/weight/line-height/family together - font-family alone isn't enough */
-  text-align: left;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 0;
-}
-
-.dropbtn::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/* Hidden Dropdown State */
+/* DROPDOWN MENU STYLING */
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  right: 0;             /* Anchors dropdown to the right edge so it opens inward */
-  left: auto;           /* Resets any left alignment */
+  top: 100%;            /* Positions directly below the parent link */
+  left: 0;              /* Aligns to the left edge of "Web Help" */
   
-  white-space: nowrap;  /* Keeps link text on a single line */
-  max-width: 90vw;      /* Prevents menu from exceeding small screen widths */
+  display: none;        /* Hidden by default */
+  flex-direction: column;
   
   background-color: #2a3a5e;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  
+  list-style: none !important; /* FIXES THE BULLET POINT (o) */
+  margin: 0;
+  padding: 8px 0;
+  
+  white-space: nowrap;  /* FIXES TEXT CUTTING OFF HORIZONTALLY */
+  width: max-content;   /* Automatically resizes to fit text */
+  min-width: 160px;
   z-index: 1000;
 }
 
+/* Remove bullets specifically inside dropdown li */
 .dropdown-menu li {
-  width: 100%;
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown-menu a {
   display: block;
-  padding: 12px 20px;
-  color: #fff;
-  white-space: nowrap;
+  padding: 10px 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.dropdown-menu a:hover,
-.dropdown-menu a:focus-visible {
-  background-color: #444;
-  color: var(--primary);
+.dropdown-menu a:hover {
+  background-color: #3b4d7a;
 }
 
-/* Interaction Rule: Reveal on hover, and on keyboard focus for accessibility */
+/* SHOW DROPDOWN ON HOVER OR FOCUS */
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu {
-  display: block;
-}
-.nav-logo {
   display: flex;
-  align-items: center;
 }
-
-.nav-logo img {
-  width: 36px;
-  height: 36px;
-  transition: transform 0.3s ease;
-}
-
-.nav-logo:hover img,
-.nav-logo:focus-visible img {
-  transform: scale(1.1);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-}
-
-/* Base link styling - shared by real <a> nav links AND the .dropbtn trigger, so they render identically */
-.nav-links a,
-.dropbtn {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  padding: 6px 2px;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-links a::after,
-.dropbtn::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible,
-.dropbtn:hover,
-.dropbtn:focus-visible {
-  color: var(--primary);
-}
-
-.nav-links a:hover::after,
-.nav-links a:focus-visible::after,
-.dropbtn:hover::after,
-.dropbtn:focus-visible::after {
-  width: 100%;
-}
-
-.nav-links a:active,
-.dropbtn:active {
-  color: var(--primary-hover);
-}
-
-
-/* MAIN CONTENT */
-.container {
-  width: 100%;
-  max-width: 850px;
-  background: var(--card);
-  padding: 35px;
-  margin-top: 30px;
-  border-radius: 24px;
-  box-shadow: 0 20px 45px #0002;
-}
-
 h1 {
   text-align: center;
   color: var(--primary);
