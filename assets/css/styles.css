@@ -17,31 +17,25 @@
 
 body {
   margin: 0;
-  padding: 0 0 25px 0;
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(135deg, #eef5ff, var(--background));
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers .container without shrinking header */
+  flex-direction: column; /* Allows navbar to sit naturally at the top */
+  align-items: center;
+  padding: 0 0 25px 0;
   color: var(--text);
 }
 
-/* ==========================================
-   TOP WRAPPER & STICKY BANNER
-   ========================================== */
+/* TOP WRAPPER & BANNER */
 .top-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .banner {
-  width: 100%;
-  background-color: rgba(30, 41, 59, 0.56); /* Dark slate semi-transparent */
+  background-color: #1e293b8f; /* Dark slate background */
   color: #ffffff;
   padding: 12px 45px 12px 20px;
   display: none; /* Default hidden */
@@ -52,12 +46,11 @@ body {
 }
 
 .banner a {
-  color: #38bdf8;
+  color: #38bdf8; /* Accessible blue link */
   text-decoration: underline;
 }
 
-#closeBtn,
-.close-btn {
+#closeBtn {
   position: absolute;
   top: 50%;
   right: 15px;
@@ -67,10 +60,9 @@ body {
   color: #ffffff;
   font-size: 20px;
   cursor: pointer;
-  line-height: 1;
 }
 
-/* Display banner in light mode */
+/* Display banner in light mode while maintaining flex layout */
 @media (prefers-color-scheme: light) {
   .banner {
     display: flex;
@@ -81,34 +73,83 @@ body.light-mode .banner {
   display: flex;
 }
 
-/* ==========================================
-   NAVBAR (Centered Links + Left Logo)
-   ========================================== */
+/* NAVBAR STYLING */
 .navbar {
   width: 100%;
   display: flex;
-  justify-content: center; /* CENTER ALL NAV LINKS */
+  justify-content: space-between;
   align-items: center;
-  position: relative;     /* Anchor point for absolute logo */
   padding: 15px 30px;
-  background-color: rgba(42, 58, 94, 0.34);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow: visible !important; /* Prevents dropdown menus from clipping */
+  background-color: #2a3a5e7e;
+}
+.nav-links li {
+  position: relative; /* Keeps the child dropdown aligned beneath this specific item */
+  margin-left: 20px;
 }
 
-/* Logo pinned to the far left */
-.nav-logo {
+/* Dropdown trigger button - reset button UA defaults so it matches the <a> nav links exactly */
+.dropbtn {
+  background: none;
+  border: none;
+  font: inherit; /* resets size/weight/line-height/family together - font-family alone isn't enough */
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+}
+
+.dropbtn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Hidden Dropdown State */
+.dropdown-menu {
+  display: none;
   position: absolute;
-  left: 30px;
+  top: 100%; /* Spawns directly below the parent link */
+  left: 0;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
+  background-color: #444;
+  color: var(--primary);
+}
+
+/* Interaction Rule: Reveal on hover, and on keyboard focus for accessibility */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+.nav-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
 }
 
 .nav-logo img {
-  width: 36px !important;
-  height: 36px !important;
-  object-fit: contain;
+  width: 36px;
+  height: 36px;
   transition: transform 0.3s ease;
 }
 
@@ -117,23 +158,13 @@ body.light-mode .banner {
   transform: scale(1.1);
 }
 
-/* Navigation Links List */
 .nav-links {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none !important;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
+  list-style: none;
 }
 
-.nav-links li {
-  position: relative; /* Keeps dropdown anchored directly under the item */
-  list-style: none !important;
-}
-
-/* Standard Nav Links */
+/* Base link styling - real <a> nav links only. The dropdown trigger
+   is styled separately below so it doesn't look like a clickable link. */
 .nav-links a {
   color: #fff;
   text-decoration: none;
@@ -141,7 +172,6 @@ body.light-mode .banner {
   padding: 6px 2px;
   position: relative;
   transition: color 0.3s ease;
-  display: inline-block;
 }
 
 .nav-links a::after {
@@ -169,19 +199,10 @@ body.light-mode .banner {
   color: var(--primary-hover);
 }
 
-/* ==========================================
-   DROPDOWN BUTTON & MENU STYLING
-   ========================================== */
+/* Dropdown trigger - same base color/size as the links for visual
+   consistency in the navbar, but no underline-on-hover animation and
+   a caret icon instead, so it doesn't read as a navigable link. */
 .dropbtn {
-  background: none;
-  border: none;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -189,11 +210,6 @@ body.light-mode .banner {
   font-size: 16px;
   padding: 6px 2px;
   transition: color 0.3s ease;
-}
-
-.dropbtn::-moz-focus-inner {
-  border: 0;
-  padding: 0;
 }
 
 .dropbtn::after {
@@ -220,15 +236,169 @@ body.light-mode .banner {
   transform: rotate(-180deg);
 }
 
-/* Dropdown Menu Container */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #333;
-  list-style: none !important; /* Removes list bullets */
-  padding: 6px 0;
-  margin: 0;
-  min-width: 170px;
-  width: max-content;
+
+/* MAIN CONTENT */
+.container {
+  width: 100%;
+  max-width: 850px;
+  background: var(--card);
+  padding: 35px;
+  margin-top: 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px #0002;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 13px;
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.35);
+}
+
+textarea {
+  height: 140px;
+}
+
+.radio-area {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.radio-area label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+p {
+  padding: 15px 0; /* 15px top/bottom, 0 left/right */
+
+}
+
+h3 {
+  padding: 20px 0; /* 20px top/bottom, 0 left/right */
+
+}
+
+label {
+  display: inline-block; /* Essential to allow vertical padding */
+  padding-bottom: 15px;  /* Adjust the spacing value as needed */
+}
+
+
+
+.radio-area input {
+  width: auto;
+}
+
+.disclaimer {
+  padding: 15px;
+  background: #eef6ff;
+  border-radius: 12px;
+}
+
+.submit {
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background: var(--primary-hover);
+}
+
+a {
+  color: var(--primary);
+}
+
+footer {
+  color: var(--caption-color);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 25px;
+}
+
+/* DARK MODE OVERRIDES */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #4da3ff;
+    --primary-hover: #82bdff;
+    --background: #101418;
+    --card: #1c1f24;
+    --caption-color: #bbbbbb;
+    --text: #f2f2f2;
+    --muted: #cccccc;
+    --border: #3b424d;
+  }
+
+  body {
+    background: linear-gradient(135deg, #101820, #1b2638);
+    color: var(--text);
+  }
+
+  fieldset {
+    padding: 15px;
+  }
+
+  .container {
+    background: var(--card);
+    box-shadow: 0 20px 50px #0008;
+  }
+
+  input,
+  textarea {
+    background: #252a31;
+    color: white;
+    border-color: var(--border);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #999;
+  }
+
+  .disclaimer {
+    background: #222b38;
+    color: white;
+  }
+
+  /* Hide banner in dark mode. Kept as a low-specificity selector on
+     purpose: body.light-mode .banner (0,0,2,1) must continue to
+     outrank this rule so the JS-driven light-mode fallback still
+     works. Don't refactor this to a higher-specificity selector. */
+  .banner {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+}
