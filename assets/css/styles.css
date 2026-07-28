@@ -179,8 +179,8 @@ body.light-mode .banner {
 }
 
 .nav-logo img {
-  width: 36px !important;
-  height: 36px !important;
+  width: 45px !important;
+  height: 45px !important;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
