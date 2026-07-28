@@ -86,20 +86,22 @@ body.light-mode .banner {
   position: relative; /* Keeps the child dropdown aligned beneath this specific item */
 }
 
-/* Dropdown trigger button - match the look of the other nav links */
+/* Dropdown trigger button - reset button UA defaults so it matches the <a> nav links exactly */
 .dropbtn {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 16px;
   font-family: inherit;
-  padding: 6px 2px;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  line-height: normal;
+  margin: 0;
 }
 
-.dropbtn:hover,
-.dropbtn:focus-visible {
-  color: var(--primary);
+.dropbtn::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 
 /* Hidden Dropdown State */
@@ -164,7 +166,9 @@ body.light-mode .banner {
   margin-left: 20px;
 }
 
-.nav-links a {
+/* Base link styling - shared by real <a> nav links AND the .dropbtn trigger, so they render identically */
+.nav-links a,
+.dropbtn {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
@@ -173,7 +177,8 @@ body.light-mode .banner {
   transition: color 0.3s ease;
 }
 
-.nav-links a::after {
+.nav-links a::after,
+.dropbtn::after {
   content: '';
   position: absolute;
   left: 0;
@@ -185,18 +190,24 @@ body.light-mode .banner {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.dropbtn:hover,
+.dropbtn:focus-visible {
   color: var(--primary);
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a:focus-visible::after,
+.dropbtn:hover::after,
+.dropbtn:focus-visible::after {
   width: 100%;
 }
 
-.nav-links a:active {
+.nav-links a:active,
+.dropbtn:active {
   color: var(--primary-hover);
 }
+
 
 /* MAIN CONTENT */
 .container {
