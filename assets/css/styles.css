@@ -159,28 +159,31 @@ body.light-mode .banner {
 /* ==========================================
    NAVBAR & LOGO (FULL WIDTH FIX)
    ========================================== */
+/* NAVBAR CONTAINER */
 .navbar {
-  width: 100%; /* Forces bar to span edge-to-edge */
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centers the inner content */
   align-items: center;
+  position: relative; /* Allows absolute positioning for the logo */
   padding: 12px 40px;
-  background-color: #2a2f5ea4;
+  background-color: #2a3a5e;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: visible !important; /* Prevents dropdown menu clipping */
+  overflow: visible !important;
 }
 
-/* Strictly limit image dimensions */
+/* LOGO (Positioned on the left while keeping links in the exact center) */
 .nav-logo {
+  position: absolute;
+  left: 30px;
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
 .nav-logo img {
-  width: 45px !important;
-  height: 45px !important;
+  width: 36px !important;
+  height: 36px !important;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -190,14 +193,34 @@ body.light-mode .banner {
   transform: scale(1.1);
 }
 
-/* Nav Links List */
+/* NAV LINKS (Centered) */
 .nav-links {
   display: flex;
   align-items: center;
+  justify-content: center; /* Keeps links aligned in the middle */
   list-style: none !important;
   gap: 15px;
   margin: 0;
   padding: 0;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px 15px;
+  }
+
+  .nav-logo {
+    position: static; /* Stack logo above links on small screens */
+    margin-bottom: 8px;
+  }
+
+  .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }
 
 .nav-links li {
