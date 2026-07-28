@@ -28,13 +28,10 @@ body {
 }
 
 /* TOP WRAPPER & STICKY HEADER */
-.top-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* Ensure parent containers allow dropdowns to pop out */
+.top-wrapper,
+.navbar {
+  overflow: visible !important; 
 }
 
 /* BANNER STYLING */
@@ -102,6 +99,7 @@ body {
 
 .nav-links li {
   margin: 0;
+  position: relative;
 }
 
 .nav-links a {
@@ -173,17 +171,18 @@ body {
 
 /* Hidden Dropdown State */
 .dropdown-menu {
-  display: none;
   position: absolute;
-  top: 100%; /* Spawns directly below the parent link */
-  left: 0;
-  background-color: #333;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
+  top: 100%;
+  right: 0;             /* Anchors dropdown to the right edge so it opens inward */
+  left: auto;           /* Resets any left alignment */
+  
+  white-space: nowrap;  /* Keeps link text on a single line */
+  max-width: 90vw;      /* Prevents menu from exceeding small screen widths */
+  
+  background-color: #2a3a5e;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .dropdown-menu li {
