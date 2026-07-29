@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultimate Tech Support</title>
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <script src="./assets/js/light-mode-message.js" defer></script>
-</head>
-<body>
 
-  <header class="top-wrapper">
+<head>
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up to Volunteer</title>
+
+    <meta name="description" content="Sign Up to Volunteer for Ultimate Tech Support. Help people with their tech problems for free.">
+    <meta name="color-scheme" content="light dark">
+    <script src="./assets/js/light-mode-message.js" defer></script>
+
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <script src="./assets/js/current-URL.js" defer></script>
+</head>
+
+<!--Body-->
+<body>
+   <header class="top-wrapper">
 
     <div id="message-banner" class="banner">
       <div class="banner-text">
@@ -23,20 +33,20 @@
 
     <nav class="navbar">
       <a class="nav-logo" href="/" aria-label="Homepage">
-        <img src="./assets/images/homepage.png" alt="Home">
+        <img src="/assets/images/homepage.png" alt="Home">
       </a>
 
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/volunteer-list">Volunteer List</a></li>
+        <li><a href="/volunteer-sign-up">Volunteer Sign Up</a></li>
         
         <li class="dropdown">
           <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Web Help</button>
           <ul class="dropdown-menu">
             <li><a href="/help/turn-on-dark-mode">Turn On Dark Mode</a></li>
             <li><a href="/help/troubleshooting-guide">Troubleshooting Guide</a></li>
-            
           </ul>
         </li>
 
@@ -44,31 +54,33 @@
     </nav>
 
   </header>
-    
-    <div class="container">
-    
-  
-        <h1>Ultimate Tech Support</h1>
-        
-        <p class="subtitle">
-            Need assistance with your computer or technology?
-            Please complete the form below.
-        </p>
-        
 
-       
-        <div class="disclaimer">
-            We cannot meet customers in person.
-            Support is available only via email, phone call, or text message.
-            We sincerely apologise for any inconvenience.
-        </div>
-        <br> 
-        <br> 
+    
+
+    <!--Main Content-->
+    <div class="container">
         
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="b06acc70-31a2-411f-9f79-399face641ac">
+        <br>
+        <hr>
+        <br>
+        <!--Title-->
+        <h1>Sign Up to Volunteer for Ultimate Tech Support</h1>
+        
+        <hr>
+        <br>
+        <h3>Recomended Skill Set for Volunteering for Ultimate Tech Support</h3>
+            <ul>
+                <li>Strong expreiance with Windows and or MacOS</li>
+                <li>Strong experiance with genaral hardware</li>
+                <li>Strong experiance with trobleshooting hardwear and or softwear.</li>
+            </ul>
             
-            <fieldset style="margin-bottom: 15px;">
+            <p><a href="/volunreer-list.html" target="_blank">Click here</a> to see other job positions</p>
+            
+
+       <form action="https://api.web3forms.com/submit" method="POST">
+       <input type="hidden" name="access_key" value="529eeaf1-b895-4279-ae81-7843866abc93">
+       <fieldset style="margin-bottom: 15px;">
                 <div class="section">
                  
                     <h3>Contact Details</h3>
@@ -106,28 +118,28 @@
                 </div>
 
                 <div class="section">
-                    <h3>Issue Description</h3>
+                    <h3>Github Account Details</h3>
 
                     <label style="margin-bottom: 10px;">
-                        Describe the problem <span style="color: red;">*</span>
+                        Github Account Name <span style="color: red;">*</span>
+                    </label>
+                    <input name="github_account_name" type="text" placeholder="Enter your github account name" required>
+                    <br> 
+                    <br> 
+
+
+                </div>
+                
+                <div class="section">
+                    <h3>Volunteer Info</h3>
+
+                    <label style="margin-bottom: 10px;">
+                        What Position Will you be Appying for? <span style="color: red;">*</span>
                     </label>
 
-                    <textarea name="problem" placeholder="Explain what is happening..." required></textarea>
-
-                    <p>
-                        Does the computer show signs of life? <span style="color: red;">*</span>
-                    </p>
-
-                    <div class="radio-area">
-                        <label>
-                            <input type="radio" name="signs_of_life" required value="Yes">
-                            Yes
-                        </label>
-
-                        <label>
-                            <input type="radio" name="signs_of_life" required value="No">
-                            No
-                        </label>
+                    <input name="position"  placeholder="Enter the Position your Appying for" required>
+                    
+                    
                     </div>
                     <hr>
                 </div>
@@ -149,27 +161,26 @@
             </fieldset>
         </form>
 
-        <h3>What Will Happen After I Submit My Form?</h3>
-
-        <p>
-            Once you submit your Tech Support Form, you will receive an email (and a call or text if you are unavailable, if chosen), and we will assist you in troubleshooting your issue.
-        </p>
-        <hr>
-
+        <!--Copyright-->
         <footer>
             © <span id="year"></span>
             AllensTechChannel.
-            <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">Contact Us.</a>
+
+            <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">
+                Contact Us.
+            </a>
+           
             
         </footer>
-        
+
     </div>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
     </script>
 
-    <script src="https://web3forms.com/client/script.js" async defer></script>
+
 
 </body>
 
