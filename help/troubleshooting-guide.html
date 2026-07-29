@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Turn On Dark Mode</title>
+
+    <meta name="description" content="This Page Does Not Have A Description">
+    <meta name="color-scheme" content="light dark">
+    <script src="/assets/js/light-mode-message.js" defer></script>
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+    
+</head>
+
+<!--Body-->
+<body>
+   <header class="top-wrapper">
+
+    <div id="message-banner" class="banner">
+      <div class="banner-text">
+        <h3>Light mode is turned on!</h3>
+        <br>
+        <span>This page looks better in dark mode. For best experience please switch to dark mode. For information on how to turn on dark mode <a href="/help/turn-on-dark-mode">visit our page on turning on dark mode</a>.</span>
+      </div>
+      <button id="closeBtn" class="close-btn">&times;</button>
+    </div>
+
+    <nav class="navbar">
+      <a class="nav-logo" href="/" aria-label="Homepage">
+        <img src="./assets/images/homepage.png" alt="Home">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        
+        <li class="dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Web Help</button>
+          <ul class="dropdown-menu">
+            <li><a href="/help/turn-on-dark-mode">Turn On Dark Mode</a></li>
+            <li><a href="/help/troubleshooting-guide">Troubleshooting Guide</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+  </header>
+
+    
+
+    <!--Main Content-->
+    <div class="container">
+  
+        <!--Title-->
+        <h1>Troubleshooting Guide</h1>
+
+        <!--Main Text-->
+        
+            <br>
+            <hr>
+            <h3>Website is dispslaying incorrectly.</h3>
+            <p class="subtitle">
+                If the website is displaying incorrectly, press <strong>Ctrl + F5</strong> to refresh the page. If that does not work, try clearing your browser cache and cookies. If the issue persists, please <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">contact us</a> for further assistance.
+            </p>
+            <br>
+            <hr>
+            
+            <br>
+            <hr>
+            <h3>A Link to a Page Does Not Work.</h3>
+            <p class="subtitle">
+                If a link to a page does not work, please check the URL for any typos. If the URL is correct and the page still does not load, please <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">contact us</a> for further assistance.
+            </p>
+            <br>
+            <hr>
+
+            <br>
+
+            <h3>Website Is Slow</h3>
+            <p class="subtitle">
+                If the website is slow, please check your internet connection. If your internet connection is stable and the website is still slow, please <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">contact us</a> for further assistance.
+
+            
+    
+        <!--Copyright-->
+        <footer>
+            © <span id="year"></span>
+            AllensTechChannel.
+
+            <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">
+                Contact Us.
+            </a>
+            <br>
+            This is in no way affiliated with Houston IT Support & Managed IT Services' Ultimate Tech Support.
+            
+        </footer>
+
+    </div>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+
+
+</body>
+
+</html>
+
