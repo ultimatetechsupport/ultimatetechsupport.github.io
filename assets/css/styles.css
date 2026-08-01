@@ -540,6 +540,7 @@ footer {
 h1 {
   text-align: center;
   color: var(--primary);
+  padding: 15px 0; /* 15px top/bottom, 0 left/right */
 }
 
 .subtitle {
