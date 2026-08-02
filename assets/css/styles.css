@@ -544,7 +544,7 @@ h1 {
 }
 
 li {
-  list-style: disc;
+  
   margin-left: 20px;
   padding: 15px 0 /* Optional: Adds vertical spacing between list items */
 }
