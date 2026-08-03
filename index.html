@@ -1,174 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultimate Tech Support</title>
-  <meta name="description" content="Need assistance with your computer or technology? Well You are in the right place! Please complete the form and we will assist you in troubleshooting your issue.">
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <script src="./assets/js/light-mode-message.js" defer></script>
-</head>
-<body>
 
-  <header class="top-wrapper">
+  <head>
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div id="message-banner" class="banner">
-      <div class="banner-text">
-        <h3>Light mode is turned on!</h3>
-        <br>
-        <span>This page looks better in dark mode. For best experience please switch to dark mode. For information on how to turn on dark mode <a href="/help/turn-on-dark-mode">visit our page on turning on dark mode</a>.</span>
-      </div>
-      <button id="closeBtn" class="close-btn">&times;</button>
-    </div>
+    <!--Page Ttile-->
+    <title>Ultimate Tech Support</title>
 
-    <nav class="navbar">
-      <a class="nav-logo" href="/" aria-label="Homepage">
-        <img src="./assets/images/homepage.png" alt="Home">
-      </a>
+    <!--Discription-->
+    <meta name="description" content="Need assistance with your computer or technology? Well You are in the right place! Please complete the form and we will assist you in troubleshooting your issue.">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/light-mode-message.js" defer></script>
+  </head>
 
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/volunteer-list">Volunteer List</a></li>
-        <li><a href="/volunteer-sign-up">Volunteer Sign Up</a></li>
-        
-        <li class="dropdown">
-          <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Web Help</button>
-          <ul class="dropdown-menu">
-            <li><a href="/help/turn-on-dark-mode">Turn On Dark Mode</a></li>
-            <li><a href="/help/create-a-email-account">Create a Email Account</a></li>
-            <li><a href="/help/troubleshooting-guide">Troubleshooting Guide</a></li>
-            
-          </ul>
-        </li>
-
-      </ul>
-    </nav>
-
-  </header>
+  <body>
     
+    <header class="top-wrapper">
+      
+        <!--Light Mode Warning-->
+      <div id="message-banner" class="banner">
+        <div class="banner-text">
+          <h3>Light mode is turned on!</h3>
+          <br>
+          <span>This page looks better in dark mode. For best experience please switch to dark mode. For information on how to turn on      dark mode <a href="/help/turn-on-dark-mode">visit our page on turning on dark mode</a>.</span>
+        </div>
+        <!--Close Button-->
+        <button id="closeBtn" class="close-btn">&times;</button>
+      </div>
+
+    <!--Nav Bar Logo-->
+      <nav class="navbar">
+        <a class="nav-logo" href="/" aria-label="Homepage">
+          <img src="./assets/images/homepage.png" alt="Home">
+        </a>
+
+        <!--Nav Bar Links-->
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/volunteer-list">Volunteer List</a></li>
+          <li><a href="/volunteer-sign-up">Volunteer Sign Up</a></li>
+
+          <!--Dropdown Menu for Help Documents-->
+          <li class="dropdown">
+            <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Web Help</button>
+            <ul class="dropdown-menu">
+              <li><a href="/help/turn-on-dark-mode">Turn On Dark Mode</a></li>
+              <li><a href="/help/create-a-email-account">Create a Email Account</a></li>
+              <li><a href="/help/troubleshooting-guide">Troubleshooting Guide</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+
+    </header>
+
+    <!--Main Content-->
     <div class="container">
     
-  
-        <h1>Ultimate Tech Support</h1>
-        
-        <p class="subtitle">
-            Need assistance with your computer or technology?
-            Please complete the form below.
-        </p>
-        
+      <!--Title-->
+      <h1>Ultimate Tech Support</h1>
 
+      <!--Caption-->
+      <p class="subtitle">
+        Need assistance with your computer or technology?
+        Please complete the form below.
+      </p>
        
-        <div class="disclaimer">
-            We cannot meet customers in person.
-            Support is available only via email.
-            We sincerely apologise for any inconvenience.
-        </div>
-        <br> 
-        <br> 
+      <!--Disclamer-->
+      <div class="disclaimer">
+        We cannot meet customers in person.
+        Support is available only via email.
+        We sincerely apologise for any inconvenience.
+      </div>
+      <br>
+      <br>
+      
+      <!--Web3Forms Setup-->
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b06acc70-31a2-411f-9f79-399face641ac">
         
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="b06acc70-31a2-411f-9f79-399face641ac">
+        <!--Form Outline-->
+        <fieldset style="margin-bottom: 15px;">
+          <div class="section">
+
+            <!--Form-->
+            <h3>Contact Details</h3>
+            <p style="color: red;"> * Indicates Required Question</p>
             
-            <fieldset style="margin-bottom: 15px;">
-                <div class="section">
-                 
-                    <h3>Contact Details</h3>
-                    <p style="color: red;"> * Indicates Required Question</p>
-                    
-                    <label style="margin-bottom: 10px;">
-                        First Name <span style="color: red;">*</span>
-                    </label>
-                    <input name="first_name" type="text" placeholder="Enter your first name" required>
-                    <br> 
-                    <br> 
-
-                    <label style="margin-bottom: 10px;">
-                        Last Name <span style="color: red;">*</span>
-                    </label>
-                    <input name="last_name" type="text" placeholder="Enter your last name" required>
-                    <br> 
-                    <br> 
-
-                    <label style="margin-bottom: 10px;">
-                        Email <span style="color: red;">*</span>
-                    </label>
-                    <input name="email" type="email" placeholder="Enter your email" required>
-                    <br> 
-                    <br> 
-
-                    
-
-                    <hr>
-                </div>
-
-                <div class="section">
-                    <h3>Issue Description</h3>
-
-                    <label style="margin-bottom: 10px;">
-                        Describe the problem <span style="color: red;">*</span>
-                    </label>
-
-                    <textarea name="problem" placeholder="Explain what is happening..." required></textarea>
-
-                    <p>
-                        Does the computer show signs of life? <span style="color: red;">*</span>
-                    </p>
-
-                    <div class="radio-area">
-                        <label>
-                            <input type="radio" name="signs_of_life" required value="Yes">
-                            Yes
-                        </label>
-
-                        <label>
-                            <input type="radio" name="signs_of_life" required value="No">
-                            No
-                        </label>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="section">
-                    <h3>Verification <span style="color: red;">*</span></h3>
-
-                    <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                        data-captcha="true"
-                        data-theme="dark"
-                        data-captcha="true" 
-                        
-                    ></div>
-
-                    <hr>
-                </div>
-
-                <input style="margin-bottom: 20px;" class="submit" type="submit" value="Send Support Request">
-            </fieldset>
-        </form>
-
-        <h3>What Will Happen After I Submit My Form?</h3>
-
-        <p>
-            Once you submit your Tech Support Form, you will receive an email and we will assist you in troubleshooting your issue.
-        </p>
-        <hr>
-
-        <footer>
-            © <span id="year"></span>
-            AllensTechChannel.
-            <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">Contact Us.</a>
             
-        </footer>
-        
+            <label style="margin-bottom: 10px;">
+              First Name <span style="color: red;">*</span>
+            </label>
+            <input name="first_name" type="text" placeholder="Enter your first name" required>
+            <br>
+            <br>
+
+            <label style="margin-bottom: 10px;">
+              Last Name <span style="color: red;">*</span>
+            </label>
+            <input name="last_name" type="text" placeholder="Enter your last name" required>
+            <br>
+            <br>
+
+            <label style="margin-bottom: 10px;">
+              Email <span style="color: red;">*</span>
+            </label>
+            <input name="email" type="email" placeholder="Enter your email" required>
+            <br>
+            <br>
+
+            <hr>
+          </div>
+
+          <div class="section">
+            <h3>Issue Description</h3>
+
+            <label style="margin-bottom: 10px;">
+              Describe the problem <span style="color: red;">*</span>
+            </label>
+
+            <textarea name="problem" placeholder="Explain what is happening..." required></textarea>
+
+            <p>
+              Does the computer show signs of life? <span style="color: red;">*</span>
+            </p>
+
+            <div class="radio-area">
+              <label>
+                <input type="radio" name="signs_of_life" required value="Yes">
+                Yes
+              </label>
+
+              <label>
+                <input type="radio" name="signs_of_life" required value="No">
+                No
+              </label>
+            </div>
+            <hr>
+          </div>
+
+          <div class="section">
+            <h3>Verification <span style="color: red;">*</span></h3>
+
+            <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-captcha="true" data-theme="dark"></div>
+
+            <hr>
+          </div>
+
+          <input style="margin-bottom: 20px;" class="submit" type="submit" value="Send Support Request">
+        </fieldset>
+      </form>
+
+      <h3>What Will Happen After I Submit My Form?</h3>
+
+      <p>
+        Once you submit your Tech Support Form, you will receive an email and we will assist you in troubleshooting your issue.
+      </p>
+      <hr>
+
+      <footer>
+        © <span id="year"></span>
+        AllensTechChannel.
+        <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">Contact Us.</a>
+
+      </footer>
+
     </div>
 
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
     <script src="https://web3forms.com/client/script.js" async defer></script>
 
-</body>
+  </body>
 
 </html>
