@@ -6,35 +6,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Page Ttile-->
+    <!--Page Title-->
     <title>Ultimate Tech Support</title>
 
-    <!--Discription-->
+    <!--Description-->
     <meta name="description" content="Need assistance with your computer or technology? Well You are in the right place! Please complete the form and we will assist you in troubleshooting your issue.">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src="./assets/js/light-mode-message.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/light-mode-message.js" defer></script>
   </head>
 
   <body>
-    
+
     <header class="top-wrapper">
-      
-        <!--Light Mode Warning-->
+
+      <!--Light Mode Warning-->
       <div id="message-banner" class="banner">
         <div class="banner-text">
           <h3>Light mode is turned on!</h3>
           <br>
-          <span>This page looks better in dark mode. For best experience please switch to dark mode. For information on how to turn on      dark mode <a href="/help/turn-on-dark-mode">visit our page on turning on dark mode</a>.</span>
+          <span>This page looks better in dark mode. For best experience please switch to dark mode. For information on how to turn on dark mode <a href="/help/turn-on-dark-mode">visit our page on turning on dark mode</a>.</span>
         </div>
         <!--Close Button-->
         <button id="closeBtn" class="close-btn">&times;</button>
       </div>
 
-    <!--Nav Bar Logo-->
+      <!--Nav Bar Logo-->
       <nav class="navbar">
         <a class="nav-logo" href="/" aria-label="Homepage">
-          <img src="./assets/images/homepage.png" alt="Home">
+          <img src="/assets/images/homepage.png" alt="Home">
         </a>
 
         <!--Nav Bar Links-->
@@ -49,9 +49,8 @@
             <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Web Help</button>
             <ul class="dropdown-menu">
               <li><a href="/help/turn-on-dark-mode">Turn On Dark Mode</a></li>
-              <li><a href="/help/create-a-email-account">Create a Email Account</a></li>
+              <li><a href="/help/create-a-email-account">Create an Email Account</a></li>
               <li><a href="/help/troubleshooting-guide">Troubleshooting Guide</a></li>
-
             </ul>
           </li>
 
@@ -62,7 +61,7 @@
 
     <!--Main Content-->
     <div class="container">
-    
+
       <!--Title-->
       <h1>Ultimate Tech Support</h1>
 
@@ -71,8 +70,8 @@
         Need assistance with your computer or technology?
         Please complete the form below.
       </p>
-       
-      <!--Disclamer-->
+
+      <!--Disclaimer-->
       <div class="disclaimer">
         We cannot meet customers in person.
         Support is available only via email.
@@ -80,36 +79,35 @@
       </div>
       <br>
       <br>
-      
+
       <!--Web3Forms Setup-->
       <form action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="b06acc70-31a2-411f-9f79-399face641ac">
-        
+
         <!--Form Outline-->
-        <fieldset style="margin-bottom: 15px;">
+        <fieldset class="form-fieldset">
           <div class="section">
 
             <!--Form-->
             <h3>Contact Details</h3>
-            <p style="color: red;"> * Indicates Required Question</p>
-            
-            
-            <label style="margin-bottom: 10px;">
-              First Name <span style="color: red;">*</span>
+            <p class="required">* Indicates Required Question</p>
+
+            <label>
+              First Name <span class="required">*</span>
             </label>
             <input name="first_name" type="text" placeholder="Enter your first name" required>
             <br>
             <br>
 
-            <label style="margin-bottom: 10px;">
-              Last Name <span style="color: red;">*</span>
+            <label>
+              Last Name <span class="required">*</span>
             </label>
             <input name="last_name" type="text" placeholder="Enter your last name" required>
             <br>
             <br>
 
-            <label style="margin-bottom: 10px;">
-              Email <span style="color: red;">*</span>
+            <label>
+              Email <span class="required">*</span>
             </label>
             <input name="email" type="email" placeholder="Enter your email" required>
             <br>
@@ -121,14 +119,14 @@
           <div class="section">
             <h3>Issue Description</h3>
 
-            <label style="margin-bottom: 10px;">
-              Describe the problem <span style="color: red;">*</span>
+            <label>
+              Describe the problem <span class="required">*</span>
             </label>
 
             <textarea name="problem" placeholder="Explain what is happening..." required></textarea>
 
             <p>
-              Does the computer show signs of life? <span style="color: red;">*</span>
+              Does the computer show signs of life? <span class="required">*</span>
             </p>
 
             <div class="radio-area">
@@ -146,14 +144,14 @@
           </div>
 
           <div class="section">
-            <h3>Verification <span style="color: red;">*</span></h3>
+            <h3>Verification <span class="required">*</span></h3>
 
             <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-captcha="true" data-theme="dark"></div>
 
             <hr>
           </div>
 
-          <input style="margin-bottom: 20px;" class="submit" type="submit" value="Send Support Request">
+          <input class="submit" type="submit" value="Send Support Request">
         </fieldset>
       </form>
 
@@ -167,8 +165,7 @@
       <footer>
         © <span id="year"></span>
         AllensTechChannel.
-        <a href="mailto:ultimatetechsupportteam@gmail.com" target="_blank">Contact Us.</a>
-
+        <a href="mailto:ultimatetechsupportteam@gmail.com">Contact Us.</a>
       </footer>
 
     </div>

@@ -17,86 +17,12 @@
 
 body {
   margin: 0;
+  padding: 0 0 25px 0;
   min-height: 100vh;
   font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(135deg, #eef5ff, var(--background));
   display: flex;
   flex-direction: column; /* Allows navbar to sit naturally at the top */
-  align-items: center;
-  padding: 0 0 25px 0;
-  color: var(--text);
-}
-
-/* TOP WRAPPER & BANNER */
-.top-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.banner {
-  background-color: #1e293b; /* Dark slate background */
-  color: #ffffff;
-  padding: 12px 45px 12px 20px;
-  display: none; /* Default hidden */
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  font-size: 14px;
-}
-
-.banner a {
-  color: #38bdf8; /* Accessible blue link */
-  text-decoration: underline;
-}
-
-#closeBtn {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* Display banner in light mode while maintaining flex layout */
-@media (prefers-color-scheme: light) {
-  .banner {
-    display: flex;
-  }
-}
-
-body.light-mode .banner {
-  display: flex;
-}
-:root {
-  --primary: #0067c5;
-  --primary-hover: #004f9e;
-  --background: #f4f7fb;
-  --card: #ffffff;
-  --text: #1a1a1a;
-  --muted: #555;
-  --caption-color: #bbbbbb;
-  --border: #d5dbe5;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0 0 25px 0;
-  min-height: 100vh;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #eef5ff, var(--background));
-  display: flex;
-  flex-direction: column;
   align-items: center; /* Centers .container without shrinking header */
   color: var(--text);
 }
@@ -126,7 +52,7 @@ body {
 }
 
 .banner a {
-  color: #38bdf8;
+  color: #38bdf8; /* Accessible blue link */
   text-decoration: underline;
 }
 
@@ -144,7 +70,7 @@ body {
   line-height: 1;
 }
 
-/* Display banner in light mode */
+/* Display banner in light mode while maintaining flex layout */
 @media (prefers-color-scheme: light) {
   .banner {
     display: flex;
@@ -358,6 +284,7 @@ body.light-mode .banner {
 h1 {
   text-align: center;
   color: var(--primary);
+  padding: 15px 0; /* 15px top/bottom, 0 left/right */
 }
 
 .subtitle {
@@ -373,9 +300,23 @@ h3 {
   padding: 20px 0;
 }
 
+li {
+  margin-left: 20px;
+  padding: 15px 0; /* Adds vertical spacing between list items */
+}
+
 label {
-  display: inline-block;
+  display: inline-block; /* Essential to allow vertical padding */
   padding-bottom: 15px;
+}
+
+.required {
+  color: #d64545;
+}
+
+.form-fieldset {
+  border: none;
+  margin-bottom: 15px;
 }
 
 input,
@@ -425,6 +366,7 @@ textarea {
 
 .submit {
   margin-top: 20px;
+  margin-bottom: 20px;
   background: var(--primary);
   color: white;
   border: none;
@@ -494,6 +436,10 @@ footer {
     color: white;
   }
 
+  /* Hide banner in dark mode. Kept as a low-specificity selector on
+     purpose: body.light-mode .banner (0,0,2,1) must continue to
+     outrank this rule so the JS-driven light-mode fallback still
+     works. Don't refactor this to a higher-specificity selector. */
   .banner {
     display: none;
   }
@@ -520,180 +466,6 @@ footer {
     justify-content: center;
   }
 
-  .container {
-    padding: 20px;
-  }
-}
-
-
-/* MAIN CONTENT */
-.container {
-  width: 100%;
-  max-width: 850px;
-  background: var(--card);
-  padding: 35px;
-  margin-top: 30px;
-  border-radius: 24px;
-  box-shadow: 0 20px 45px #0002;
-}
-
-h1 {
-  text-align: center;
-  color: var(--primary);
-  padding: 15px 0; /* 15px top/bottom, 0 left/right */
-}
-
-li {
-  
-  margin-left: 20px;
-  padding: 15px 0 /* Optional: Adds vertical spacing between list items */
-}
-
-.subtitle {
-  text-align: center;
-  color: var(--muted);
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 13px;
-  margin-top: 6px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: white;
-  color: var(--text);
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.35);
-}
-
-textarea {
-  height: 140px;
-}
-
-.radio-area {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.radio-area label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-p {
-  padding: 15px 0; /* 15px top/bottom, 0 left/right */
-
-}
-
-h3 {
-  padding: 20px 0; /* 20px top/bottom, 0 left/right */
-
-}
-
-label {
-  display: inline-block; /* Essential to allow vertical padding */
-  padding-bottom: 15px;  /* Adjust the spacing value as needed */
-}
-
-
-
-.radio-area input {
-  width: auto;
-}
-
-.disclaimer {
-  padding: 15px;
-  background: #eef6ff;
-  border-radius: 12px;
-}
-
-.submit {
-  margin-top: 20px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.submit:hover {
-  background: var(--primary-hover);
-}
-
-a {
-  color: var(--primary);
-}
-
-footer {
-  color: var(--caption-color);
-  text-align: center;
-  font-size: 0.9rem;
-  margin-top: 25px;
-}
-
-/* DARK MODE OVERRIDES */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #4da3ff;
-    --primary-hover: #82bdff;
-    --background: #101418;
-    --card: #1c1f24;
-    --caption-color: #bbbbbb;
-    --text: #f2f2f2;
-    --muted: #cccccc;
-    --border: #3b424d;
-  }
-
-  body {
-    background: linear-gradient(135deg, #101820, #1b2638);
-    color: var(--text);
-  }
-
-  fieldset {
-    padding: 15px;
-  }
-
-  .container {
-    background: var(--card);
-    box-shadow: 0 20px 50px #0008;
-  }
-
-  input,
-  textarea {
-    background: #252a31;
-    color: white;
-    border-color: var(--border);
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: #999;
-  }
-
-  .disclaimer {
-    background: #222b38;
-    color: white;
-  }
-
-  /* Hide banner in dark mode. Kept as a low-specificity selector on
-     purpose: body.light-mode .banner (0,0,2,1) must continue to
-     outrank this rule so the JS-driven light-mode fallback still
-     works. Don't refactor this to a higher-specificity selector. */
-  .banner {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
   .container {
     padding: 20px;
   }
